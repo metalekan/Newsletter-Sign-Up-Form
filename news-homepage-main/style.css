@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+img{
+    max-width: 100%;
+}
+
+body{
+    padding: 3rem;
+}
+
+header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.nav-items a{
+    text-decoration: none;
+    padding: 9px 15px;
+    color: hsl(240, 100%, 5%);
+}
+
+.nav-items a:hover{
+    color: hsl(5, 85%, 63%);
+}
+
+li{
+    display: inline-block;
+}
+
+.toggle{
+    position: relative;
+    display: block;
+    width: 40px;
+    cursor: pointer;
+    z-index: 1;
+
+    appearance: none;
+    background: none;
+    border: none;
+    outline: none;
+    display: none;
+}
+
+.toggle .bars, .toggle::after, .toggle::before{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 4px;
+    margin: 6px 0px;
+    background: hsl(240, 100%, 5%);
+    transition: 0.3s;
+}
+
+.toggle.is-active::before{
+    transform: rotate(-45deg) translate(-8px, 6px);
+}
+
+.toggle.is-active::after{
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+
+.toggle.is-active .bars{
+    opacity: 0;
+}
+
+.mobile-nav{
+    display: none;
+}
+
+
+section.one{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+    "a a b"
+    "c d b"
+    ;
+    gap: 1.25rem 1.25rem;
+    margin: 3rem 0;
+}
+
+section.one .img-area{
+    background: url(./assets/images/image-web-3-desktop.jpg) no-repeat center center/ cover;
+    grid-area: a;
+    height: 60vh;
+}
+
+section.one .web3{
+    grid-area: c;
+}
+
+.web3 h1{
+    font-weight: 800;
+    font-size: 4rem;
+}
+
+section.one .web3-text{
+    grid-area: d;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: hsl(240, 100%, 5%);
+}
+
+section.one .web3-text button{
+    background-color: hsl(5, 85%, 63%);
+    color: hsl(36, 100%, 99%);
+    width: 50%;
+    padding: 15px 15px;
+    border: none;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+section.one .web3-text button:hover{
+    background-color: hsl(240, 100%, 5%);
+}
+
+section.one .aside{
+    grid-area: b;
+    background: hsl(240, 100%, 5%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 1.25rem;
+}
+
+.aside h2{
+    color: hsl(35, 77%, 62%);
+    font-size: 2rem;
+}
+
+.aside h3{
+    color:  hsl(36, 100%, 99%);
+}
+
+.aside h3:hover{
+    color: hsl(35, 77%, 62%);
+}
+
+.aside p{
+    color: hsl(233, 8%, 79%);
+    line-height: 30px;
+}
+
+section.one .aside .aside-text{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+section.one .aside .aside-text:not(:last-child){
+    border-bottom: 1px solid hsl(233, 8%, 79%);
+    padding-bottom: 1.25rem;
+}
+
+section.two{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 1.25rem;
+}
+
+section.two .two-child{
+    display: flex;
+    gap: .5rem;
+}
+
+section.two .two-child img{
+    width: 110px;
+}
+
+.inner-two-child{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.inner-two-child h2{
+    color: hsl(233, 8%, 79%);
+    font-weight: 700;
+}
+
+.inner-two-child h3:hover{
+    color: hsl(5, 85%, 63%);
+}
+
+.inner-two-child p{
+    color: hsl(240, 100%, 5%);
+}
+
+@media (max-width: 900px) {
+    body{
+        padding: 1rem;
+    }
+
+    .mobile-nav{
+        display: flex;
+        flex-direction: column;
+        padding: 9rem 2rem;
+        gap: 2rem;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 70%;
+        height: 100vh;
+        background-color: #fff;
+        transition: 0.4s;
+    }
+
+    .mobile-nav.active{
+        display: none;
+    }
+
+    .nav-items{
+        display: none;
+    }
+    
+    .mobile-nav a{
+        display: block;
+        text-decoration: none;
+        color: hsl(240, 100%, 5%);
+    }
+
+    .toggle{
+        display: block;
+    }
+
+    section.one, section.two{
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .web3 h1{
+        font-size: 2.5rem;
+    }
+
+    .web3-text{
+        gap: 1rem;
+    }
+
+    section.one .img-area{
+        background: url(./assets/images/image-web-3-mobile.jpg) no-repeat center center/ cover;
+        height: 40vh;
+    }
+
+    .aside-text{
+        margin: 1rem 0;
+    }
+}
